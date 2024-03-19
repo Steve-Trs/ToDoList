@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <p class="title-p">My To Do List...</p>
+      </div>
+    </header>
+    <div class="toggle-menu">
+      <div class="linebtn l1"></div>
+      <div class="linebtn l2"></div>
+      <div class="linebtn l3"></div>
+    </div>
+
+    <div class="nav-menu">
+      <nav class="navbar">
+        <div class="navlinks">
+          <ul>
+            <li class="active">
+              <a href="#" onclick="showTasksByDate('all')">All</a>
+            </li>
+            <li><a href="#" onclick="showTasksByDate('today')">Today</a></li>
+            <li>
+              <a href="#" onclick="showTasksByDate('upcoming')">Upcoming</a>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Filters</a>
+              <ul class="submenu">
+                <li>
+                  <a href="#" onclick="showTasksByCompletion('completed')"
+                    >Completed</a
+                  >
+                </li>
+                <li>
+                  <a href="#" onclick="showTasksByCompletion('to do')">To Do</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showTasksByPriority()">Priority</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="add-task">
+        <form onsubmit="addTask(); return false;">
+          <input
+            type="text"
+            name="task"
+            class="task-input-text"
+            placeholder="Enter a task"
+            maxlength="50"
+          />
+          <input
+            type="date"
+            name="datetask"
+            class="task-input-date"
+            placeholder="Enter a date"
+          />
+          <select name="priority" class="task-input-priority">
+            <option value="">Select Your Priority</option>
+            <option value="1" data-priority="High-Priority">
+              High-Priority
+            </option>
+            <option value="0" data-priority="Low-Priority">Low-Priority</option>
+          </select>
+          <button class="submit-button" type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="added-tasks table">
+        <div class="line task-title">
+          <input
+            type="checkbox"
+            class="task-checkbox"
+            name="state-checkbox"
+            id="invisible"
+          />
+          <span class="task-name tnlist">Task Name</span>
+          <span class="task-date">Date</span>
+          <span class="task-priority">Priority</span>
+          <!-- <button class="delete-button" id="invisible"></button> -->
+          <span id="invisible" class="fakespan"></span>
+        </div>
+        <div class="tasks-list">
+          <template id="task-item-template">
+            <div class="line task-item">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                name="state-checkbox"
+              />
+              <span class="task-name"></span>
+              <span class="task-date"></span>
+              <span class="task-priority"></span>
+              <button class="delete-button" type="button"></button>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div class="random-quote-wrapper">
+      <div class="quote-box">
+        <span class="text">"Quote loading..."</span>
+        <span class="author"></span>
+        <button class="new-quote" type="button">New quote</button>
+      </div>
+    </div>
+    <footer>
+      <div class="title">
+        <p class="title-p">...Let's get it done!</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- <script src="app.js"></script> -->
+  </body>
+</html>
